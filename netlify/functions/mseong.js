@@ -1,6 +1,10 @@
-exports.handler = async () => {
-    return {
-      statusCode: 200,
-      body: 'hello world!',
-    };
-  };
+let express = require('express');
+let app = express();
+const serverless = require('serverless-http');
+
+app.get('/api',function(req,res) {
+  res.send('holla');
+})
+
+
+module.exports.handler = serverless(app)
